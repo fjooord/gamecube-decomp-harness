@@ -36,7 +36,13 @@
         "b-hsw-summary-applies-14",
         "b-hsw-action-controls-pointer-15",
         "b-hsw-compatibility-pointer-16",
-        "71310f77-476f-401f-8d50-bc6515f95eda"
+        "71310f77-476f-401f-8d50-bc6515f95eda",
+        "b-ui-run-h",
+        "b-ui-run-lead",
+        "b-ui-run-1",
+        "b-ui-run-2",
+        "b-ui-run-3",
+        "b-ui-run-prompts"
       ]
     },
     "b-ui-role-2": {
@@ -368,6 +374,155 @@
       "text": [
         {
           "insert": "Game selection comes from the workspace URL. The client reloads /api/config with that gameId, resets game detail state, and reconnects the dashboard request with the selected game paths. Workspace controls remain unavailable until the response game matches the URL and selected form. The game selector reads each game's Harness State independently, so unloaded data is not presented as an uninitialized game. The pre-activation Save Worker Settings action uses /api/run/configuration with the current Run revision and leaves execution paused."
+        }
+      ],
+      "children": []
+    },
+    "b-ui-run-h": {
+      "id": "b-ui-run-h",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Run the Dashboard"
+        }
+      ],
+      "children": []
+    },
+    "b-ui-run-lead": {
+      "id": "b-ui-run-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The dashboard server is usually already running in the background. Start a new one only when the user asks for it. Three scripts start it."
+        }
+      ],
+      "children": []
+    },
+    "b-ui-run-1": {
+      "id": "b-ui-run-1",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "bun run ui",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " builds the frontend with "
+        },
+        {
+          "insert": "ui:build",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and then starts the server with "
+        },
+        {
+          "insert": "ui:server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-ui-run-2": {
+      "id": "b-ui-run-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "bun run ui:server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " starts only the server, "
+        },
+        {
+          "insert": "apps/server/src/server.ts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It listens on port 8787, or on "
+        },
+        {
+          "insert": "ORCH_UI_PORT",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " when that is set."
+        }
+      ],
+      "children": []
+    },
+    "b-ui-run-3": {
+      "id": "b-ui-run-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "bun run ui:dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " rebuilds the frontend on each change and sets "
+        },
+        {
+          "insert": "ORCH_UI_HOT_RELOAD=1",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-ui-run-prompts": {
+      "id": "b-ui-run-prompts",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "A prompt change must also update the dashboard Agents preview. "
+        },
+        {
+          "insert": "Prompt Previews",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "20-agents/50-prompt-previews"
+            }
+          }
+        },
+        {
+          "insert": " lists the files to update."
         }
       ],
       "children": []

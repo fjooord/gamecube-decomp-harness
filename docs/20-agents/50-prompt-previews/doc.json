@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-f184a44af965058a626dab16f0ae9b5e",
+  "title": "Prompt Previews",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-pp-intro",
+        "b-pp-files-h",
+        "b-pp-files-lead",
+        "b-pp-files-tree",
+        "b-pp-rule-h",
+        "b-pp-rule-lead",
+        "b-pp-rule-1",
+        "b-pp-rule-2",
+        "b-pp-rule-3",
+        "b-pp-rule-4",
+        "b-pp-test-lead",
+        "b-pp-test-code",
+        "b-pp-fail-h",
+        "b-pp-fail"
+      ]
+    },
+    "b-pp-intro": {
+      "id": "b-pp-intro",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The dashboard "
+        },
+        {
+          "insert": "Agents",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " page shows a sample prompt for each agent in "
+        },
+        {
+          "insert": "KERNEL_AGENT_IDS",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The server renders each sample with the real prompt builders and returns it from "
+        },
+        {
+          "insert": "GET /api/kernel/agents",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". A prompt change must update this preview path in the same change, so the page shows what the agent gets."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-files-h": {
+      "id": "b-pp-files-h",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Preview Files"
+        }
+      ],
+      "children": []
+    },
+    "b-pp-files-lead": {
+      "id": "b-pp-files-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Three source files make the preview, and one test file checks it."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-files-tree": {
+      "id": "b-pp-files-tree",
+      "type": "file-tree",
+      "props": {
+        "entries": [
+          {
+            "path": "apps/server/src/core/agent-catalog/kernel-preview.ts",
+            "note": "Sample packets and placeholder values. loadKernelAgentsPayload renders each agent."
+          },
+          {
+            "path": "apps/server/src/core/agent-catalog/kernel-catalog.ts",
+            "note": "Catalog entries. toKernelAgentViewerDefinition turns a prompt bundle into the viewer shape."
+          },
+          {
+            "path": "apps/server/src/core/agent-catalog/kernel-catalog.test.ts",
+            "note": "Preview tests, with checks that rendered text holds no {{."
+          },
+          {
+            "path": "apps/frontend/src/pages/workspace/agents/index.tsx",
+            "note": "The Agents page. It shows the payload and its warnings."
+          }
+        ]
+      },
+      "children": []
+    },
+    "b-pp-rule-h": {
+      "id": "b-pp-rule-h",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Change a Prompt"
+        }
+      ],
+      "children": []
+    },
+    "b-pp-rule-lead": {
+      "id": "b-pp-rule-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "A change to a prompt template, a prompt placeholder, or injected prompt context must update the preview files in the same change."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-rule-1": {
+      "id": "b-pp-rule-1",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Update the sample rendering and the placeholder values in "
+        },
+        {
+          "insert": "kernel-preview.ts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-rule-2": {
+      "id": "b-pp-rule-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Update the catalog conversion in "
+        },
+        {
+          "insert": "kernel-catalog.ts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " when the prompt bundle or its context changes."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-rule-3": {
+      "id": "b-pp-rule-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Update the viewer in "
+        },
+        {
+          "insert": "agents/index.tsx",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " when the payload shape changes."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-rule-4": {
+      "id": "b-pp-rule-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Never let raw "
+        },
+        {
+          "insert": "{{PLACEHOLDER}}",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " text reach the preview. Add a test next to the change that asserts the rendered text holds no "
+        },
+        {
+          "insert": "{{",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-test-lead": {
+      "id": "b-pp-test-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Run the agent catalog tests before you report the change."
+        }
+      ],
+      "children": []
+    },
+    "b-pp-test-code": {
+      "id": "b-pp-test-code",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "bun test apps/server/src/core/agent-catalog"
+        }
+      ],
+      "children": []
+    },
+    "b-pp-fail-h": {
+      "id": "b-pp-fail-h",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Render Failures"
+        }
+      ],
+      "children": []
+    },
+    "b-pp-fail": {
+      "id": "b-pp-fail",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "When a sample render throws, "
+        },
+        {
+          "insert": "loadKernelAgentsPayload",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " keeps that agent's catalog data and adds the warning \"Unable to render <agent> sample prompt\" to the payload. The Agents page shows each payload warning above the viewer."
+        }
+      ],
+      "children": []
+    }
+  }
+}
