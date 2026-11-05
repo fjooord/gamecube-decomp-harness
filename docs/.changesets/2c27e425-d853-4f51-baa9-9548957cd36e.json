@@ -1,0 +1,17 @@
+{
+  "id": "2c27e425-d853-4f51-baa9-9548957cd36e",
+  "summary": "Create Prompt Previews",
+  "status": "applied",
+  "entries": [],
+  "treeOps": [
+    {
+      "kind": "create-doc",
+      "docPath": "20-agents/50-prompt-previews",
+      "title": "Prompt Previews",
+      "position": 0
+    }
+  ],
+  "createdAt": "2026-11-05T20:15:16.035Z",
+  "resolvedAt": "2026-11-05T20:15:16.038Z",
+  "compoundPatchId": "2df5a660-0043-4763-9c18-53d49e58e288"
+}

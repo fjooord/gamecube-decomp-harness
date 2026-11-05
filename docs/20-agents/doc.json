@@ -18,6 +18,7 @@
         "b-boundaries-text",
         "b-context-text",
         "b-shared-loader",
+        "b-prompt-previews",
         "b-flow",
         "b-knowledge"
       ]
@@ -164,6 +165,26 @@
         },
         {
           "insert": " alongside their role loader. It provides shared session context when available. The role-specific sections are documented on each agent page."
+        }
+      ],
+      "children": []
+    },
+    "b-prompt-previews": {
+      "id": "b-prompt-previews",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Prompt Previews",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "20-agents/50-prompt-previews"
+            }
+          }
+        },
+        {
+          "insert": " covers the dashboard sample prompts and the files a prompt change must update."
         }
       ],
       "children": []
